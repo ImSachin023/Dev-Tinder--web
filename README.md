@@ -7,3 +7,6 @@
 - Add Navbar to ui
 - Create a Navbar.jsx seperate component file 
 - Install react router Dom
+- create BrowserRouter > Routes > Route =/Body >RouteChildren
+- Create an outlet in your Body Component 
+- create a footer 
