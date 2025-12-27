@@ -12,7 +12,6 @@ const Connection = () => {
       const res = await axios.get(BASE_URL + "/user/connections", {
         withCredentials: true,
       });
-      console.log(res.data.data);
       dispatch(addConnections(res.data.data));
     } catch (error) {
       console.error("Error fetching connections:", error);
@@ -35,7 +34,7 @@ const Connection = () => {
         const { _id, firstName, lastName, photoURL, about, age, gender } =
           connection;
         return (
-          <div key={_id} className="flex m-4 p-4 bg-base-200 rounded-lg w-1/2 mx-auto">
+          <div key={_id} className="flex m-4 p-4 bg-base-300 rounded-lg w-1/2 mx-auto">
             <div className="">
               <img
                 alt="Photo"
