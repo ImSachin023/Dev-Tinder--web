@@ -15,6 +15,7 @@ const EditProfile = ({ user }) => {
   const [Error, setError] = useState("");
   const dispatch = useDispatch();
   const [showToast, setShowToast] = useState(false);
+  const [showError, setShowError] = useState(false);
 
   const saveProfile = async () => {
     //Clear previous error
@@ -40,6 +41,10 @@ const EditProfile = ({ user }) => {
       }, 3000);
     } catch (error) {
       setError(error.response.data);
+      setShowError(true);
+      setTimeout(() => {
+        setShowError(false);
+      }, 5000);
     }
   };
 
@@ -110,7 +115,7 @@ const EditProfile = ({ user }) => {
                 >
                   <option disabled={true}>Select Gender</option>
                   <option>Male</option>
-                  <option>Female</option>
+                  <option>female</option>
                   <option>other</option>
                 </select>
               </fieldset>
@@ -125,7 +130,7 @@ const EditProfile = ({ user }) => {
                 />
               </fieldset>
             </div>
-            <p className="text-red-500">{Error}</p>
+
             <div className="card-actions justify-center">
               <button className="btn btn-primary text-xl" onClick={saveProfile}>
                 Save Profile
@@ -140,6 +145,27 @@ const EditProfile = ({ user }) => {
           <div className="alert alert-success">
             <span>Profile saved successfully.</span>
           </div>
+        </div>
+      )}
+      {showError && (
+        <div
+          role="alert"
+          className="alert alert-error toast toast-top toast-center"
+        >
+          <svg
+            xmlns="http://www.w3.org/2000/svg"
+            className="h-6 w-6 shrink-0 stroke-current"
+            fill="none"
+            viewBox="0 0 24 24"
+          >
+            <path
+              strokeLinecap="round"
+              strokeLinejoin="round"
+              strokeWidth="2"
+              d="M10 14l2-2m0 0l2-2m-2 2l-2-2m2 2l2 2m7-2a9 9 0 11-18 0 9 9 0 0118 0z"
+            />
+          </svg>
+          <span>{Error}</span>
         </div>
       )}
     </div>
