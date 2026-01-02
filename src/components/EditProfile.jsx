@@ -96,22 +96,31 @@ const EditProfile = ({ user }) => {
 
               <fieldset className="fieldset w-full my-2">
                 <legend className="fieldset-legend text-xl">Gender</legend>
-                <input
+                {/* <input
                   type="text"
-                  value={gender}
                   className="input input-bordered w-full my-2"
                   placeholder="Gender"
                   onChange={(e) => setGender(e.target.value)}
-                />
+                /> */}
+                <select
+                  defaultValue="Pick a color"
+                  className="select appearance-none w-full my-2"
+                  value={gender}
+                  onChange={(e) => setGender(e.target.value)}
+                >
+                  <option disabled={true}>Select Gender</option>
+                  <option>Male</option>
+                  <option>Female</option>
+                  <option>other</option>
+                </select>
               </fieldset>
 
               <fieldset className="fieldset w-full my-2">
                 <legend className="fieldset-legend text-xl">About</legend>
-                <input
-                  type="text"
-                  value={about}
-                  className="input input-bordered w-full my-2"
+                <textarea
                   placeholder="About"
+                  className="textarea w-full my-2"
+                  value={about}
                   onChange={(e) => setAbout(e.target.value)}
                 />
               </fieldset>

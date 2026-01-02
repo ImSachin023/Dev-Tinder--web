@@ -36,11 +36,7 @@ const Navbar = () => {
               className="btn btn-ghost btn-circle avatar"
             >
               <div className="w-10 rounded-full">
-                <img
-                  className=""
-                  alt="Tailwind CSS Navbar component"
-                  src={user.photoURL}
-                />
+                <img className="" alt="User" src={user.photoURL} />
               </div>
             </div>
             <ul
@@ -48,16 +44,14 @@ const Navbar = () => {
               className="menu menu-sm dropdown-content bg-base-100 rounded-box z-1 mt-3 w-52 p-2 shadow"
             >
               <li>
-                <Link to="/profile" className="justify-between">
-                  Profile
-                </Link>
+                <Link to="/profile">Profile</Link>
               </li>
               <li>
                 <Link to="/connections">Connection</Link>
               </li>
               <li>
                 <Link to="/requests"> Requests</Link>
-              </li> 
+              </li>
               <li>
                 <a onClick={handleLogout}>Logout</a>
               </li>
