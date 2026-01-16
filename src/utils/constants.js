@@ -1,4 +1,4 @@
 export const BASE_URL =
   location.hostname === "localhost"
     ? "http://localhost:7777"
-    : "https://api.productiondomain.com";
+    : "https://tinder-project-using-nodejs.onrender.com";

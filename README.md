@@ -34,3 +34,14 @@
 - Signup New User
 - E2ETesting
 
+# razorpay payment Gateway integration
+ - Sign up on razorpay & complete KYC
+ - created a UI for the premium page
+ - Creating an API for Create order in backend 
+ - added my key and secret in env file 
+ - Intialized razorpay in utils 
+ - creating order on razorpay 
+ - create schema and model
+ - saved the order in payments collection 
+ - make the API dynamic
+

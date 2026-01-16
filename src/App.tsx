@@ -7,6 +7,9 @@ import appStore from "./utils/appStore"
 import Feed from "./components/Feed"
 import Connection from "./components/Connection"
 import Requests from "./components/Requests"
+import Premium from "./components/Premium"
+import TermAndCondition from "./components/term and condition"
+import PrivacyPolicy from "./components/PrivacyPolicy"
 
 function App() {
   return (
@@ -20,6 +23,9 @@ function App() {
       <Route path="/profile" element={<Profile />} />
       <Route path="/connections" element={<Connection />} />
       <Route path="/requests" element={<Requests />} />
+      <Route path="/premium" element={<Premium />} />
+      <Route path="/privacypolicy" element={<PrivacyPolicy />} />
+      <Route path="/termcondition" element={<TermAndCondition />} />
       </Route>
     </Routes>
     </BrowserRouter>   
