@@ -44,4 +44,12 @@
  - create schema and model
  - saved the order in payments collection 
  - make the API dynamic
+ - setup Razorpay webhook on your live API
 
+
+# Real time Chat using Websocket(Socket.io)
+ - Buils the UI for achat window on /chat/:targetUserId
+ - setup socket.io in backend
+ - npm install socket.io
+ - 
+  

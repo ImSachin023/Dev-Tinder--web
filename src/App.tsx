@@ -10,6 +10,7 @@ import Requests from "./components/Requests"
 import Premium from "./components/Premium"
 import TermAndCondition from "./components/term and condition"
 import PrivacyPolicy from "./components/PrivacyPolicy"
+import Chat from "./components/Chat"
 
 function App() {
   return (
@@ -26,6 +27,7 @@ function App() {
       <Route path="/premium" element={<Premium />} />
       <Route path="/privacypolicy" element={<PrivacyPolicy />} />
       <Route path="/termcondition" element={<TermAndCondition />} />
+      <Route path="/chat/:targetUserId" element={<Chat />} />
       </Route>
     </Routes>
     </BrowserRouter>   
