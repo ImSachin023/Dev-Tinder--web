@@ -51,5 +51,10 @@
  - Buils the UI for achat window on /chat/:targetUserId
  - setup socket.io in backend
  - npm install socket.io
- - 
+ - setup frontend socket.io-client
+ - intialise the chat
+ - createSocketConnection
+ - listen to events
+ - work - Improve the UI,limit msg
+
   
