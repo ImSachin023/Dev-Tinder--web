@@ -53,9 +53,12 @@ const Connection = () => {
               {age && gender && <p>{age + ", " + gender}</p>}
               <p>{about}</p>
             </div>
-            <Link to={"/chat/" + _id}>
+            <div className="ml-auto">
+              <Link to={"/chat/" + _id}>
               <button className="btn btn-primary">Chat</button>
             </Link>
+            </div>
+            
           </div>
         );
       })}
