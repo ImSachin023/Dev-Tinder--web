@@ -4,6 +4,7 @@ import { addFeed } from "../utils/feedSlice";
 import { useDispatch, useSelector } from "react-redux";
 import { useEffect } from "react";
 import UserCard from "./UserCard";
+import { AnimatePresence } from "framer-motion";
 
 const Feed = () => {
   const feed = useSelector((store) => store.feed);
@@ -24,15 +25,22 @@ const Feed = () => {
     getFeed();
   }, []);
 
-  if(!feed) return;
-  if(feed.length <= 0) return <h1 className="flex justify-center my-10 font-bold text-3xl">No more users Found</h1>;
+  if (!feed) return;
+  if (feed.length <= 0)
+    return (
+      <h1 className="flex justify-center my-10 font-bold text-3xl">
+        No more users Found
+      </h1>
+    );
 
   return (
-    feed &&(
-      <div className="flex justify-center my-10">
-      <UserCard user ={feed[0]} />
+    <div className="flex justify-center my-10">
+      <AnimatePresence>
+        {feed.slice(0, 2).map((user, index) => (
+          <UserCard key={user._id} user={user} index={index} />
+        ))}
+      </AnimatePresence>
     </div>
-    )
   );
 };
 

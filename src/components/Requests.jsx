@@ -52,7 +52,7 @@ const Requests = () => {
         return (
           <div
             key={_id}
-            className="flex justify-between items-center m-4 p-4 bg-base-300 rounded-lg w-2/3 mx-auto"
+            className="flex items-center m-4 p-4 bg-base-300 rounded-lg w-2/3 mx-auto"
           >
             <div>
               <img
@@ -68,7 +68,7 @@ const Requests = () => {
               {age && gender && <p>{age + ", " + gender}</p>}
               <p>{about}</p>
             </div>
-            <div className="">
+            <div className="flex flex-row ml-auto">
               <button
                 className="btn btn-secondary mx-2"
                 onClick={() => reviewRequest("rejected", request._id)}

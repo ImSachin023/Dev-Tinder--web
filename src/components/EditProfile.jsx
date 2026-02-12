@@ -12,10 +12,11 @@ const EditProfile = ({ user }) => {
   const [age, setAge] = useState(user.age || "");
   const [gender, setGender] = useState(user.gender || "");
   const [about, setAbout] = useState(user.about || "");
+  const [skills, setSkills] = useState(user.skills || []);
   const [Error, setError] = useState("");
-  const dispatch = useDispatch();
   const [showToast, setShowToast] = useState(false);
   const [showError, setShowError] = useState(false);
+  const dispatch = useDispatch();
 
   const saveProfile = async () => {
     //Clear previous error
@@ -31,8 +32,9 @@ const EditProfile = ({ user }) => {
           age,
           gender,
           about,
+          skills,
         },
-        { withCredentials: true }
+        { withCredentials: true },
       );
       dispatch(addUser(res?.data?.data));
       setShowToast(true);
@@ -49,7 +51,8 @@ const EditProfile = ({ user }) => {
   };
 
   return (
-    <div className="flex justify-center my-10 flex-row items-center">
+    <div className="flex justify-center my-10 flex-row items-center ">
+    <div className="flex flex-row">
       <div className="flex justify-center mx-10 ">
         <div className="card bg-base-300 w-120 shadow-xl">
           <div className="card-body">
@@ -113,11 +116,22 @@ const EditProfile = ({ user }) => {
                   value={gender}
                   onChange={(e) => setGender(e.target.value)}
                 >
-                  <option disabled={true}>Select Gender</option>
+                  <option value="" disabled={true}>Select Gender</option>
                   <option>male</option>
                   <option>female</option>
                   <option>other</option>
                 </select>
+              </fieldset>
+
+              <fieldset className="fieldset w-full my-2">
+                <legend className="fieldset-legend text-xl">Skills</legend>
+                <input
+                  type="text"
+                  value={skills}
+                  className="input input-bordered w-full my-2"
+                  placeholder="Skills (comma separated)"
+                  onChange={(e) => setSkills(e.target.value)}
+                />
               </fieldset>
 
               <fieldset className="fieldset w-full my-2">
@@ -139,7 +153,14 @@ const EditProfile = ({ user }) => {
           </div>
         </div>
       </div>
-      <UserCard user={{ firstName, lastName, photoURL, age, gender, about }} />
+      <div className="flex w-96 mx-10">
+        <UserCard
+          className="mt-10"
+          user={{ firstName, lastName, photoURL, age, gender, about, skills }}
+        />
+      </div>
+      </div>
+
       {showToast && (
         <div className="toast toast-top toast-center">
           <div className="alert alert-success">
@@ -150,7 +171,7 @@ const EditProfile = ({ user }) => {
       {showError && (
         <div
           role="alert"
-          className="alert alert-error toast toast-top toast-center"
+          className="alert alert-error toast toast-top toast-center absolute"
         >
           <svg
             xmlns="http://www.w3.org/2000/svg"

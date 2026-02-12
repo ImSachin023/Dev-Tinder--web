@@ -31,37 +31,38 @@ const Connection = () => {
   return (
     <div className=" text-center my-10">
       <h1 className="font-bold text-4xl">Connections</h1>
-      {connections.map((connection) => {
-        const { _id, firstName, lastName, photoURL, about, age, gender } =
-          connection;
-        return (
-          <div
-            key={_id}
-            className="flex m-4 p-4 bg-base-300 rounded-lg w-1/2 mx-auto items-center "
-          >
-            <div className="">
-              <img
-                alt="Photo"
-                src={photoURL}
-                className="w-20 h-20 rounded-full "
-              />
+      {connections
+        .filter((connection) => connection !== null)
+        .map((connection) => {
+          const { _id, firstName, lastName, photoURL, about, age, gender } =
+            connection;
+          return (
+            <div
+              key={_id}
+              className="flex justify-between m-4 p-4 bg-base-300 rounded-lg w-2/3 mx-auto items-center"
+            >
+              <div className="">
+                <img
+                  alt="Photo"
+                  src={photoURL}
+                  className="w-20 h-20 rounded-full "
+                />
+              </div>
+              <div className="text-left ml-4">
+                <h1 className="font-bold text-xl">
+                  {firstName + " " + lastName}
+                </h1>
+                {age && gender && <p>{age + ", " + gender}</p>}
+                <p>{about}</p>
+              </div>
+              <div className="ml-auto">
+                <Link to={"/chat/" + _id}>
+                  <button className="btn btn-primary">Chat</button>
+                </Link>
+              </div>
             </div>
-            <div className="text-left ml-4">
-              <h1 className="font-bold text-xl">
-                {firstName + " " + lastName}
-              </h1>
-              {age && gender && <p>{age + ", " + gender}</p>}
-              <p>{about}</p>
-            </div>
-            <div className="ml-auto">
-              <Link to={"/chat/" + _id}>
-              <button className="btn btn-primary">Chat</button>
-            </Link>
-            </div>
-            
-          </div>
-        );
-      })}
+          );
+        })}
     </div>
   );
 };

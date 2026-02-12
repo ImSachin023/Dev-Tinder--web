@@ -53,7 +53,9 @@ const Premium = () => {
     rzp.open();
   };
   return isUserPremium ? (
-    "you are a premium user"
+    <h1 className="flex justify-center text-3xl font-bold my-6 py-6">
+        you are a premium user
+      </h1>
   ) : (
     <div>
       <h1 className="flex justify-center text-3xl font-bold my-6 py-6">
