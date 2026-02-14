@@ -141,7 +141,7 @@ const Premium = () => {
             </ul>
             <div className="mt-13">
               <button
-                className="btn btn-primary btn-block"
+                className="btn bg-gray-600 btn-block font-bold text-white"
                 onClick={() => handleBuyClick("silver")}
               >
                 Buy Silver Member
@@ -228,7 +228,7 @@ const Premium = () => {
             </ul>
             <div className="mt-13">
               <button
-                className="btn btn-secondary btn-block"
+                className="btn bg-amber-400 btn-block text-black font-bold"
                 onClick={() => handleBuyClick("gold")}
               >
                 Buy Gold Member
